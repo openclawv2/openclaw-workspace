@@ -94,11 +94,37 @@
       "priority": "low",
       "comments": [],
       "createdAt": "2026-01-01T00:00:02Z"
+    },
+    {
+      "id": "th_design_ui",
+      "title": "🦊 TheriaHub - Diseñar UI de Perfil",
+      "description": "Crear el diseño de la pantalla de perfil de usuario para la app TheriaHub. Debe incluir:\n\n- Foto de avatar\n- Username display\n- Bio/descripción corta\n- Información de theriotype\n- Botón de editar perfil\n- Links a redes sociales (opcional)\n\n**Requisitos técnicos:**\n- Mobile-first (React Native)\n- Estilo moderno y juvenil\n- Colores de marca púrpura/verde\n- Dark mode support",
+      "status": "backlog",
+      "project": "theriahub",
+      "tags": ["theriahub", "ui", "design"],
+      "subtasks": [
+        { "id": "sub_001", "title": "📝 Crear mockups Figma", "done": false },
+        { "id": "sub_002", "title": "🎨 Definir paleta de colores", "done": false },
+        { "id": "sub_003", "title": "📱 Diseñar versión mobile", "done": false },
+        { "id": "sub_004", "title": "🌙 Crear versión dark mode", "done": false },
+        { "id": "sub_005", "title": "✅ Validar diseño con usuario", "done": false }
+      ],
+      "priority": "high",
+      "dod": "Mockups completos en Figma con todas las variantes (light/dark mode, mobile) listos para implementar",
+      "comments": [
+        {
+          "author": "OpenClaw",
+          "text": "Tarea de ejemplo para probar Mission Control. Cuando muevas a 'In Progress', el agente empezará a trabajar en ella.",
+          "timestamp": "2026-02-11T20:00:00Z"
+        }
+      ],
+      "createdAt": "2026-02-11T20:00:00Z"
     }
   ],
   "projects": [
     { "id": "guides", "name": "Guides", "color": "#10b981", "icon": "📚" },
-    { "id": "default", "name": "My Project", "color": "#3b82f6", "icon": "📁" }
+    { "id": "default", "name": "My Project", "color": "#3b82f6", "icon": "📁" },
+    { "id": "theriahub", "name": "TheriaHub", "color": "#8b5cf6", "icon": "🦊" }
   ],
   "activities": [
     { "type": "created", "actor": "Mission Control", "task": "Onboarding Guide", "time": "just now" },
