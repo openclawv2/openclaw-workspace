@@ -99,7 +99,7 @@
       "id": "th_design_ui",
       "title": "🦊 TheriaHub - Diseñar UI de Perfil",
       "description": "Crear el diseño de la pantalla de perfil de usuario para la app TheriaHub. Debe incluir:\n\n- Foto de avatar\n- Username display\n- Bio/descripción corta\n- Información de theriotype\n- Botón de editar perfil\n- Links a redes sociales (opcional)\n\n**Requisitos técnicos:**\n- Mobile-first (React Native)\n- Estilo moderno y juvenil\n- Colores de marca púrpura/verde\n- Dark mode support",
-      "status": "backlog",
+      "status": "in_progress",
       "project": "theriahub",
       "tags": ["theriahub", "ui", "design"],
       "subtasks": [
