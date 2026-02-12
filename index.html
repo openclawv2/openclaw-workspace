@@ -3038,47 +3038,33 @@
             lastUpdated: new Date().toISOString()
         };
         async function loadTasksFromGitHub() {
-            if (!STATE.token) {
-                console.log('No token, using fallback data');
-                STATE.data = JSON.parse(JSON.stringify(FALLBACK_DATA));
-                return;
-            }
+            // FIXED: Load directly from local repo data without requiring token
+            // This works for the simple setup where tasks.json is in the repo
 
             STATE.isLoading = true;
-            showToast('success', '📥 Loading tasks from GitHub...');
+            showToast('success', '📥 Loading tasks...');
 
             try {
-                const response = await fetch(
-                    `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.tasksFile}`,
-                    {
-                        headers: {
-                            'Authorization': `token ${STATE.token}`,
-                            'Accept': 'application/vnd.github.v3+json'
-                        }
-                    }
-                );
-
+                // Try to load from local data/tasks.json first (Vercel/GitHub Pages)
+                const response = await fetch('data/tasks.json');
+                
                 if (!response.ok) {
                     throw new Error('Could not load tasks file');
                 }
 
-                const fileData = await response.json();
-                // UTF-8 safe base64 decode
-                const bytes = Uint8Array.from(atob(fileData.content), c => c.charCodeAt(0));
-                const content = new TextDecoder().decode(bytes);
-                const data = JSON.parse(content);
+                const data = await response.json();
 
                 STATE.data = data;
                 STATE.originalData = JSON.parse(JSON.stringify(data));
-                STATE.fileSha = fileData.sha;  // Needed for updates
 
-                console.log('Loaded tasks from GitHub:', data.tasks.length, 'tasks');
-                showToast('success', `✓ Loaded ${data.tasks.length} tasks from GitHub`);
+                console.log('Loaded tasks from local file:', data.tasks.length, 'tasks');
+                showToast('success', `✓ Loaded ${data.tasks.length} tasks`);
 
             } catch (error) {
-                console.error('Error loading from GitHub:', error);
-                showToast('error', 'Could not load from GitHub, using cached data');
+                console.error('Error loading tasks:', error);
+                // Use FALLBACK_DATA only as last resort
                 STATE.data = JSON.parse(JSON.stringify(FALLBACK_DATA));
+                console.log('Using fallback data');
             }
 
             STATE.isLoading = false;
