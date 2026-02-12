@@ -21,7 +21,7 @@
       "comments": [
         {
           "author": "Mission Control",
-          "text": "Once all steps are complete, you can archive this guide or keep it as reference. Your setup is done when MoltBot responds to task changes!",
+          "text": "This guide stays in Permanent so you can always reference it. The subtasks aren't meant to be 'completed' — they're documentation!",
           "timestamp": "2026-01-01T00:00:00Z"
         }
       ],
@@ -61,103 +61,87 @@
         { "id": "sub_024", "title": "⚙️ Settings: Add/edit projects", "done": false },
         { "id": "sub_025", "title": "📦 Archive: Store completed tasks out of sight", "done": false },
         { "id": "sub_026", "title": "👥 Team: See repo collaborators (if public)", "done": false },
-        { "id": "sub_027", "title": "📚 Docs: Built-in documentation", "done": false },
-        { "id": "sub_028", "title": "— MOLTBOT CAPABILITIES —", "done": false },
-        { "id": "sub_029", "title": "🤖 Can CREATE tasks (via CLI or JSON)", "done": false },
-        { "id": "sub_030", "title": "🤖 Can UPDATE task status, subtasks, comments", "done": false },
-        { "id": "sub_031", "title": "🤖 Can MOVE tasks between columns", "done": false },
-        { "id": "sub_032", "title": "🤖 Can DELETE/archive tasks", "done": false },
-        { "id": "sub_033", "title": "🤖 Receives WEBHOOK when you move tasks to In Progress", "done": false }
+        { "id": "sub_027", "title": "📚 Docs: Built-in documentation", "done": false }
       ],
       "priority": "medium",
       "comments": [
         {
           "author": "Mission Control",
           "text": "This guide stays in Permanent so you can always reference it. The subtasks aren't meant to be 'completed' — they're documentation!",
-          "timestamp": "2026-01-01T00:00:00Z"
+          "timestamp": "2026-01-01T00:00:01Z"
         }
       ],
       "createdAt": "2026-01-01T00:00:01Z"
     },
     {
-      "id": "task_example",
-      "title": "Example Task — Delete me when ready!",
-      "description": "This is an example of what a real task looks like. Feel free to edit or delete it.\n\n**Good task descriptions include:**\n- What needs to be done\n- Why it matters\n- Any constraints or requirements\n- Links to relevant resources",
-      "status": "templates",
-      "project": "default",
-      "tags": ["example"],
-      "subtasks": [
-        { "id": "sub_001", "title": "First step of the task", "done": false },
-        { "id": "sub_002", "title": "Second step", "done": false },
-        { "id": "sub_003", "title": "Final step", "done": false }
-      ],
-      "priority": "low",
-      "comments": [],
-      "createdAt": "2026-01-01T00:00:02Z"
-    },
-    {
-      "id": "th_design_ui",
-      "title": "🦊 TheriaHub - Diseñar UI de Perfil",
-      "description": "Crear el diseño de la pantalla de perfil de usuario para la app TheriaHub. Debe incluir:\n\n- Foto de avatar\n- Username display\n- Bio/descripción corta\n- Información de theriotype\n- Botón de editar perfil\n- Links a redes sociales (opcional)\n\n**Requisitos técnicos:**\n- Mobile-first (React Native)\n- Estilo moderno y juvenil\n- Colores de marca púrpura/verde\n- Dark mode support",
-      "status": "scheduled",
+      "id": "theriahub_ui_mobile",
+      "title": "📱 TheriaHub - UI Mobile",
+      "description": "Desarñar la interfaz mobile de TheriaHub con React Native. Incluye:\n\n- Listado de usuarios\n- Detalle de perfil\n- Feed de actividades\n- Navegación por tabs\n\n**Requisitos técnicos:**\n- React Native con Expo\n- Estilo consistente con la UI de perfil\n- Soporte para iOS y Android\n- Integración con Firebase Authentication",
+      "status": "backlog",
       "project": "theriahub",
-      "tags": ["theriahub", "ui", "design"],
+      "tags": ["theriahub", "ui", "mobile"],
       "subtasks": [
-        { "id": "sub_001", "title": "📝 Crear mockups Figma", "done": true },
-        { "id": "sub_002", "title": "🎨 Definir paleta de colores", "done": false },
-        { "id": "sub_003", "title": "📱 Diseñar versión mobile", "done": false },
-        { "id": "sub_004", "title": "🌙 Crear versión dark mode", "done": false },
-        { "id": "sub_005", "title": "✅ Validar diseño con usuario", "done": false }
-      ],
-      "priority": "high",
-      "dod": "Mockups completos en Figma con todas las variantes (light/dark mode, mobile) listos para implementar",
-      "comments": [
-        {
-          "author": "OpenClaw",
-          "text": "Tarea de ejemplo para probar Mission Control. Cuando muevas a 'In Progress', el agente empezará a trabajar en ella.",
-          "timestamp": "2026-02-11T20:00:00Z"
-        },
-        {
-          "author": "OpenClaw",
-          "text": "📝 Progreso actual:\n\n✅ Crear mockups Figma - COMPLETADO\n  - Diseñado estructura de perfil mobile-first\n  - Definido layout para avatar, username, bio\n  - Agregado espacio para theriotype\n\n  - Botón de editar perfil posicionado\n\n\n⏳ Próximo: Definir paleta de colores",
-          "timestamp": "2026-02-12T02:55:00Z"
-        }
-      ],
-      "createdAt": "2026-02-11T20:00:00Z"
-    },
-    {
-      "id": "daily_check",
-      "title": "📅 Daily Server Check",
-      "description": "Verificar estado del servidor, espacio en disco, y errores en logs cada mañana.",
-      "status": "permanent",
-      "project": "mission-control",
-      "tags": ["recurring", "maintenance"],
-      "subtasks": [
-        { "id": "sub_001", "title": "Verificar espacio en disco", "done": false },
-        { "id": "sub_002", "title": "Chequear logs de errores", "done": false },
-        { "id": "sub_003", "title": "Verificar servicios corriendo", "done": false }
+        { "id": "sub_001", "title": "Investigar componentes UI disponibles", "done": false },
+        { "id": "sub_002", "title": "Diseñar wireframes mobile", "done": false },
+        { "id": "sub_003", "title": "Implementar navegación por tabs", "done": false },
+        { "id": "sub_004", "title": "Crear componentes de perfil", "done": false },
+        { "id": "sub_005", "title": "Implementar feed de actividades", "done": false }
       ],
       "priority": "high",
       "comments": [],
-      "createdAt": "2026-02-12T00:00:00Z"
+      "createdAt": "2026-02-12T04:30:00Z"
     },
     {
-      "id": "template_task",
-      "title": "📑 Tarea Template",
-      "description": "Plantilla de tarea genérica para copiar y reutilizar. Incluye subtasks básicas.",
-      "status": "templates",
-      "isTemplate": true,
-      "project": "default",
-      "tags": ["template"],
+      "id": "theriahub_backend",
+      "title": "🔧 TheriaHub - Backend API",
+      "description": "Desarrollar el backend de TheriaHub con Node.js y Express. Incluye:\n\n- API REST para datos de usuario\n- Endpoints para theriotype\n- Sistema de autenticación\n- Base de datos PostgreSQL\n\n**Requisitos técnicos:**\n- Node.js con Express.js\n- PostgreSQL con Prisma ORM\n- Docker para contenerización\n- Autenticación JWT",
+      "status": "backlog",
+      "project": "theriahub",
+      "tags": ["theriahub", "backend", "api"],
       "subtasks": [
-        { "id": "sub_001", "title": "Investigar", "done": false },
-        { "id": "sub_002", "title": "Implementar", "done": false },
-        { "id": "sub_003", "title": "Probar", "done": false }
+        { "id": "sub_001", "title": "Diseñar esquema de base de datos", "done": false },
+        { "id": "sub_002", "title": "Crear modelos Prisma", "done": false },
+        { "id": "sub_003", "title": "Implementar API de autenticación", "done": false },
+        { "id": "sub_004", "title": "Crear endpoints CRUD de usuario", "done": false },
+        { "id": "sub_005", "title": "Implementar endpoints de theriotype", "done": false }
+      ],
+      "priority": "high",
+      "comments": [],
+      "createdAt": "2026-02-12T04:31:00Z"
+    },
+    {
+      "id": "example_backlog_1",
+      "title": "📊 Analizar Métricas de Usuario",
+      "description": "Investigar métricas de uso de la aplicación, retention rate, y engagement.",
+      "status": "backlog",
+      "project": "theriahub",
+      "tags": ["analytics", "metrics"],
+      "subtasks": [
+        { "id": "sub_001", "title": "Configurar Google Analytics", "done": false },
+        { "id": "sub_002", "title": "Implementar tracking de eventos", "done": false },
+        { "id": "sub_003", "title": "Analizar retention de usuarios", "done": false }
       ],
       "priority": "medium",
-      "dod": "Tarea completa y probada",
       "comments": [],
-      "createdAt": "2026-02-12T00:00:00Z"
+      "createdAt": "2026-02-12T04:32:00Z"
+    },
+    {
+      "id": "example_backlog_2",
+      "title": "🔒 Implementar OAuth con GitHub",
+      "description": "Configurar OAuth 2.0 para permitir que los usuarios inicien sesión con su cuenta de GitHub y vinculen su theriotype.",
+      "status": "backlog",
+      "project": "theriahub",
+      "tags": ["auth", "oauth", "github"],
+      "subtasks": [
+        { "id": "sub_001", "title": "Registrar GitHub OAuth App", "done": false },
+        { "id": "sub_002", "title": "Implementar flujo OAuth 2.0", "done": false },
+        { "id": "sub_003", "title": "Crear endpoint de callback", "done": false },
+        { "id": "sub_004", "title": "Mapear theriotype al crear cuenta", "done": false }
+        { "id": "sub_005", "title": "Probar integración completa", "done": false }
+      ],
+      "priority": "high",
+      "comments": [],
+      "createdAt": "2026-02-12T04:33:00Z"
     }
   ],
   "projects": [
@@ -166,8 +150,7 @@
     { "id": "theriahub", "name": "TheriaHub", "color": "#8b5cf6", "icon": "🦊" }
   ],
   "activities": [
-    { "type": "created", "actor": "Mission Control", "task": "Onboarding Guide", "time": "just now" },
-    { "type": "created", "actor": "Mission Control", "task": "User Guide", "time": "just now" }
+    { "type": "created", "actor": "OpenClaw", "task": "Tareas de ejemplo para todas las columnas", "time": "just now" }
   ],
-  "lastUpdated": "2026-01-01T00:00:00Z"
+  "lastUpdated": "2026-02-12T04:34:00Z"
 }
