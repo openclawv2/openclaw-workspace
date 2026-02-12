@@ -18,13 +18,7 @@
         { "id": "sub_008", "title": "8. Test: Create a task, move to In Progress, verify MoltBot receives notification", "done": false }
       ],
       "priority": "high",
-      "comments": [
-        {
-          "author": "Mission Control",
-          "text": "This guide stays in Permanent so you can always reference it. The subtasks aren't meant to be 'completed' — they're documentation!",
-          "timestamp": "2026-01-01T00:00:00Z"
-        }
-      ],
+      "comments": [],
       "createdAt": "2026-01-01T00:00:00Z"
     },
     {
@@ -54,103 +48,35 @@
         { "id": "sub_017", "title": "2. Move to 'In Progress' → MoltBot gets notified via webhook", "done": false },
         { "id": "sub_018", "title": "3. MoltBot works on task, updates subtasks & adds comments", "done": false },
         { "id": "sub_019", "title": "4. MoltBot moves to 'Review' when done", "done": false },
-        { "id": "sub_020", "title": "5. You review: Approve → Done, or add feedback → back to In Progress", "done": false },
-        { "id": "sub_021", "title": "— DASHBOARD FEATURES —", "done": false },
-        { "id": "sub_022", "title": "🔍 Search: Filter tasks by text", "done": false },
-        { "id": "sub_023", "title": "📁 Project filter: Click project buttons to filter", "done": false },
-        { "id": "sub_024", "title": "⚙️ Settings: Add/edit projects", "done": false },
-        { "id": "sub_025", "title": "📦 Archive: Store completed tasks out of sight", "done": false },
-        { "id": "sub_026", "title": "👥 Team: See repo collaborators (if public)", "done": false },
-        { "id": "sub_027", "title": "📚 Docs: Built-in documentation", "done": false }
+        { "id": "sub_020", "title": "5. You review: Approve → Done, or add feedback → back to In Progress", "done": false }
       ],
       "priority": "medium",
-      "comments": [
-        {
-          "author": "Mission Control",
-          "text": "This guide stays in Permanent so you can always reference it. The subtasks aren't meant to be 'completed' — they're documentation!",
-          "timestamp": "2026-01-01T00:00:01Z"
-        }
-      ],
+      "comments": [],
       "createdAt": "2026-01-01T00:00:01Z"
     },
     {
-      "id": "theriahub_ui_mobile",
-      "title": "📱 TheriaHub - UI Mobile",
-      "description": "Desarñar la interfaz mobile de TheriaHub con React Native. Incluye:\n\n- Listado de usuarios\n- Detalle de perfil\n- Feed de actividades\n- Navegación por tabs\n\n**Requisitos técnicos:**\n- React Native con Expo\n- Estilo consistente con la UI de perfil\n- Soporte para iOS y Android\n- Integración con Firebase Authentication",
-      "status": "backlog",
-      "project": "theriahub",
-      "tags": ["theriahub", "ui", "mobile"],
+      "id": "daily_check",
+      "title": "📅 Daily Server Check",
+      "description": "Verificar estado del servidor, espacio en disco, y errores en logs cada mañana.",
+      "status": "permanent",
+      "project": "mission-control",
+      "tags": ["recurring", "maintenance"],
       "subtasks": [
-        { "id": "sub_001", "title": "Investigar componentes UI disponibles", "done": false },
-        { "id": "sub_002", "title": "Diseñar wireframes mobile", "done": false },
-        { "id": "sub_003", "title": "Implementar navegación por tabs", "done": false },
-        { "id": "sub_004", "title": "Crear componentes de perfil", "done": false },
-        { "id": "sub_005", "title": "Implementar feed de actividades", "done": false }
+        { "id": "sub_001", "title": "Verificar espacio en disco", "done": false },
+        { "id": "sub_002", "title": "Chequear logs de errores", "done": false },
+        { "id": "sub_003", "title": "Verificar servicios corriendo", "done": false }
       ],
       "priority": "high",
       "comments": [],
-      "createdAt": "2026-02-12T04:30:00Z"
-    },
-    {
-      "id": "theriahub_backend",
-      "title": "🔧 TheriaHub - Backend API",
-      "description": "Desarrollar el backend de TheriaHub con Node.js y Express. Incluye:\n\n- API REST para datos de usuario\n- Endpoints para theriotype\n- Sistema de autenticación\n- Base de datos PostgreSQL\n\n**Requisitos técnicos:**\n- Node.js con Express.js\n- PostgreSQL con Prisma ORM\n- Docker para contenerización\n- Autenticación JWT",
-      "status": "backlog",
-      "project": "theriahub",
-      "tags": ["theriahub", "backend", "api"],
-      "subtasks": [
-        { "id": "sub_001", "title": "Diseñar esquema de base de datos", "done": false },
-        { "id": "sub_002", "title": "Crear modelos Prisma", "done": false },
-        { "id": "sub_003", "title": "Implementar API de autenticación", "done": false },
-        { "id": "sub_004", "title": "Crear endpoints CRUD de usuario", "done": false },
-        { "id": "sub_005", "title": "Implementar endpoints de theriotype", "done": false }
-      ],
-      "priority": "high",
-      "comments": [],
-      "createdAt": "2026-02-12T04:31:00Z"
-    },
-    {
-      "id": "example_backlog_1",
-      "title": "📊 Analizar Métricas de Usuario",
-      "description": "Investigar métricas de uso de la aplicación, retention rate, y engagement.",
-      "status": "backlog",
-      "project": "theriahub",
-      "tags": ["analytics", "metrics"],
-      "subtasks": [
-        { "id": "sub_001", "title": "Configurar Google Analytics", "done": false },
-        { "id": "sub_002", "title": "Implementar tracking de eventos", "done": false },
-        { "id": "sub_003", "title": "Analizar retention de usuarios", "done": false }
-      ],
-      "priority": "medium",
-      "comments": [],
-      "createdAt": "2026-02-12T04:32:00Z"
-    },
-    {
-      "id": "example_backlog_2",
-      "title": "🔒 Implementar OAuth con GitHub",
-      "description": "Configurar OAuth 2.0 para permitir que los usuarios inicien sesión con su cuenta de GitHub y vinculen su theriotype.",
-      "status": "backlog",
-      "project": "theriahub",
-      "tags": ["auth", "oauth", "github"],
-      "subtasks": [
-        { "id": "sub_001", "title": "Registrar GitHub OAuth App", "done": false },
-        { "id": "sub_002", "title": "Implementar flujo OAuth 2.0", "done": false },
-        { "id": "sub_003", "title": "Crear endpoint de callback", "done": false },
-        { "id": "sub_004", "title": "Mapear theriotype al crear cuenta", "done": false }
-        { "id": "sub_005", "title": "Probar integración completa", "done": false }
-      ],
-      "priority": "high",
-      "comments": [],
-      "createdAt": "2026-02-12T04:33:00Z"
+      "createdAt": "2026-02-12T00:00:00Z"
     }
   ],
   "projects": [
     { "id": "guides", "name": "Guides", "color": "#10b981", "icon": "📚" },
-    { "id": "default", "name": "My Project", "color": "#3b82f6", "icon": "📁" },
-    { "id": "theriahub", "name": "TheriaHub", "color": "#8b5cf6", "icon": "🦊" }
+    { "id": "mission-control", "name": "Mission Control", "color": "#3b82f6", "icon": "🎛️" }
   ],
   "activities": [
-    { "type": "created", "actor": "OpenClaw", "task": "Tareas de ejemplo para todas las columnas", "time": "just now" }
+    { "type": "created", "actor": "OpenClaw", "task": "Limpiando workspace", "time": "just now" }
   ],
-  "lastUpdated": "2026-02-12T04:34:00Z"
+  "lastUpdated": "2026-02-12T04:40:00Z"
 }
