@@ -351,15 +351,17 @@
         .kanban {
             flex: 1;
             display: flex;
-            gap: 1rem;
-            padding: 1rem 2rem;
+            gap: 1.5rem;
+            padding: 2rem;
             overflow-x: auto;
             align-items: stretch;
+            justify-content: space-between;
         }
 
         .column {
-            min-width: 300px;
-            max-width: 350px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 450px;
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
@@ -2265,6 +2267,7 @@
                     <div class="column-dot recurring"></div>
                     <span class="column-title">Recurring</span>
                     <span class="column-count" id="count-recurring">0</span>
+                    <span class="column-add" onclick="openNewTask('permanent')" title="Add recurring job">+</span>
                 </div>
                 <div class="column-tasks" id="tasks-recurring" ondragover="handleCronDragOver(event)" ondragleave="handleCronDragLeave(event)" ondrop="handleCronDrop(event)"></div>
             </div>
@@ -2286,58 +2289,7 @@
                     <span class="column-count" id="count-templates">0</span>
                     <span class="column-add" onclick="openNewTemplate()" title="Add new template">+</span>
                 </div>
-                <div class="column-tasks" id="tasks-templates"></div>
-            </div>
-
-            <div class="column">
-                <div class="column-header">
-                    <div class="column-dot permanent"></div>
-                    <span class="column-title">Permanent</span>
-                    <span class="column-count" id="count-permanent">0</span>
-                    <span class="column-add" onclick="openNewTask('permanent')" title="Add new task">+</span>
-                </div>
-                <div class="column-tasks" id="tasks-permanent" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'permanent')"></div>
-            </div>
-
-            <div class="column">
-                <div class="column-header">
-                    <div class="column-dot backlog"></div>
-                    <span class="column-title">Backlog</span>
-                    <span class="column-count" id="count-backlog">0</span>
-                    <span class="column-add" onclick="openNewTask('backlog')" title="Add new task">+</span>
-                </div>
-                <div class="column-tasks" id="tasks-backlog" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'backlog')"></div>
-            </div>
-
-            <div class="column">
-                <div class="column-header">
-                    <div class="column-dot in-progress"></div>
-                    <span class="column-title">In Progress</span>
-                    <span class="column-count" id="count-in_progress">0</span>
-                    <span class="column-add" onclick="openNewTask('in_progress')" title="Add new task">+</span>
-                </div>
-                <div class="column-tasks" id="tasks-in_progress" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'in_progress')"></div>
-            </div>
-
-            <div class="column">
-                <div class="column-header">
-                    <div class="column-dot review"></div>
-                    <span class="column-title">Review</span>
-                    <span class="column-count" id="count-review">0</span>
-                    <span class="column-add" onclick="openNewTask('review')" title="Add new task">+</span>
-                </div>
-                <div class="column-tasks" id="tasks-review" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'review')"></div>
-            </div>
-
-            <div class="column">
-                <div class="column-header">
-                    <div class="column-dot done"></div>
-                    <span class="column-title">Done</span>
-                    <span class="column-count" id="count-done">0</span>
-                    <button class="archive-all-btn" onclick="showArchiveView()" title="View archived tasks" style="background: transparent;">📂 View</button>
-                    <button class="archive-all-btn" onclick="archiveAllDone()" title="Archive all done tasks">📦 Archive All</button>
-                </div>
-                <div class="column-tasks" id="tasks-done" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'done')"></div>
+                <div class="column-tasks" id="tasks-templates" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'templates')"></div>
             </div>
         </div>
 
@@ -3503,7 +3455,7 @@
 
         // === RENDER FUNCTIONS ===
         function renderTasks(animate = false) {
-            const columns = ['permanent', 'backlog', 'in_progress', 'review', 'done'];
+            const columns = ['recurring', 'scheduled', 'templates'];
             const data = STATE.data || FALLBACK_DATA;
             const priorityOrder = { high: 0, medium: 1, low: 2 };
 
@@ -3520,11 +3472,15 @@
 
             columns.forEach(status => {
                 const container = document.getElementById(`tasks-${status}`);
-                let tasks = data.tasks.filter(t => t.status === status && !t.isTemplate && t.status !== 'scheduled');
+                let tasks = [];
 
-                // Filter out archived tasks (unless searching with archive enabled)
-                if (!(showArchivedInSearch && searchQuery)) {
-                    tasks = tasks.filter(t => !t.archived);
+                // Filter by column type
+                if (status === 'recurring') {
+                    tasks = data.tasks.filter(t => t.status === 'permanent');
+                } else if (status === 'scheduled') {
+                    tasks = data.tasks.filter(t => t.status === 'scheduled');
+                } else if (status === 'templates') {
+                    tasks = data.tasks.filter(t => t.isTemplate === true);
                 }
 
                 // Apply project filter
@@ -3532,30 +3488,31 @@
                     tasks = tasks.filter(t => t.project === currentFilter || (t.tags && t.tags.includes(currentFilter)));
                 }
 
-                // Sort: Done column by completedAt (newest first), others by priority + sortOrder
-                if (status === 'done') {
-                    // Done: newest completed tasks first
-                    tasks.sort((a, b) => {
-                        const dateA = a.completedAt ? new Date(a.completedAt).getTime() : 0;
-                        const dateB = b.completedAt ? new Date(b.completedAt).getTime() : 0;
-                        return dateB - dateA; // Descending (newest first)
-                    });
-                } else {
-                    // Other columns: priority first, then sortOrder
-                    tasks.sort((a, b) => {
-                        const prioA = priorityOrder[a.priority] ?? 1;
-                        const prioB = priorityOrder[b.priority] ?? 1;
-                        if (prioA !== prioB) return prioA - prioB;
-                        const orderA = a.sortOrder ?? 999999;
-                        const orderB = b.sortOrder ?? 999999;
-                        return orderA - orderB;
-                    });
-                }
+                // Sort: priority first, then sortOrder
+                tasks.sort((a, b) => {
+                    const prioA = priorityOrder[a.priority] ?? 1;
+                    const prioB = priorityOrder[b.priority] ?? 1;
+                    if (prioA !== prioB) return prioA - prioB;
+                    const orderA = a.sortOrder ?? 999999;
+                    const orderB = b.sortOrder ?? 999999;
+                    return orderA - orderB;
+                });
 
                 const count = document.getElementById(`count-${status}`);
                 count.textContent = tasks.length;
+
+                // Custom empty state text for each column
+                let emptyText = 'No tasks';
+                if (status === 'recurring') {
+                    emptyText = 'No recurring jobs';
+                } else if (status === 'scheduled') {
+                    emptyText = 'No scheduled tasks';
+                } else if (status === 'templates') {
+                    emptyText = 'No templates yet';
+                }
+
                 container.innerHTML = tasks.length === 0
-                    ? '<div class="empty-state">No tasks</div>'
+                    ? `<div class="empty-state">${emptyText}</div>`
                     : tasks.map(renderTaskCard).join('');
             });
 

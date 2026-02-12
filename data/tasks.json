@@ -83,7 +83,7 @@
       "id": "task_example",
       "title": "Example Task — Delete me when ready!",
       "description": "This is an example of what a real task looks like. Feel free to edit or delete it.\n\n**Good task descriptions include:**\n- What needs to be done\n- Why it matters\n- Any constraints or requirements\n- Links to relevant resources",
-      "status": "backlog",
+      "status": "templates",
       "project": "default",
       "tags": ["example"],
       "subtasks": [
@@ -99,7 +99,7 @@
       "id": "th_design_ui",
       "title": "🦊 TheriaHub - Diseñar UI de Perfil",
       "description": "Crear el diseño de la pantalla de perfil de usuario para la app TheriaHub. Debe incluir:\n\n- Foto de avatar\n- Username display\n- Bio/descripción corta\n- Información de theriotype\n- Botón de editar perfil\n- Links a redes sociales (opcional)\n\n**Requisitos técnicos:**\n- Mobile-first (React Native)\n- Estilo moderno y juvenil\n- Colores de marca púrpura/verde\n- Dark mode support",
-      "status": "in_progress",
+      "status": "scheduled",
       "project": "theriahub",
       "tags": ["theriahub", "ui", "design"],
       "subtasks": [
@@ -124,6 +124,40 @@
         }
       ],
       "createdAt": "2026-02-11T20:00:00Z"
+    },
+    {
+      "id": "daily_check",
+      "title": "📅 Daily Server Check",
+      "description": "Verificar estado del servidor, espacio en disco, y errores en logs cada mañana.",
+      "status": "permanent",
+      "project": "mission-control",
+      "tags": ["recurring", "maintenance"],
+      "subtasks": [
+        { "id": "sub_001", "title": "Verificar espacio en disco", "done": false },
+        { "id": "sub_002", "title": "Chequear logs de errores", "done": false },
+        { "id": "sub_003", "title": "Verificar servicios corriendo", "done": false }
+      ],
+      "priority": "high",
+      "comments": [],
+      "createdAt": "2026-02-12T00:00:00Z"
+    },
+    {
+      "id": "template_task",
+      "title": "📑 Tarea Template",
+      "description": "Plantilla de tarea genérica para copiar y reutilizar. Incluye subtasks básicas.",
+      "status": "templates",
+      "isTemplate": true,
+      "project": "default",
+      "tags": ["template"],
+      "subtasks": [
+        { "id": "sub_001", "title": "Investigar", "done": false },
+        { "id": "sub_002", "title": "Implementar", "done": false },
+        { "id": "sub_003", "title": "Probar", "done": false }
+      ],
+      "priority": "medium",
+      "dod": "Tarea completa y probada",
+      "comments": [],
+      "createdAt": "2026-02-12T00:00:00Z"
     }
   ],
   "projects": [
