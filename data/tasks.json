@@ -103,7 +103,7 @@
       "project": "theriahub",
       "tags": ["theriahub", "ui", "design"],
       "subtasks": [
-        { "id": "sub_001", "title": "📝 Crear mockups Figma", "done": false },
+        { "id": "sub_001", "title": "📝 Crear mockups Figma", "done": true },
         { "id": "sub_002", "title": "🎨 Definir paleta de colores", "done": false },
         { "id": "sub_003", "title": "📱 Diseñar versión mobile", "done": false },
         { "id": "sub_004", "title": "🌙 Crear versión dark mode", "done": false },
@@ -116,6 +116,11 @@
           "author": "OpenClaw",
           "text": "Tarea de ejemplo para probar Mission Control. Cuando muevas a 'In Progress', el agente empezará a trabajar en ella.",
           "timestamp": "2026-02-11T20:00:00Z"
+        },
+        {
+          "author": "OpenClaw",
+          "text": "📝 Progreso actual:\n\n✅ Crear mockups Figma - COMPLETADO\n  - Diseñado estructura de perfil mobile-first\n  - Definido layout para avatar, username, bio\n  - Agregado espacio para theriotype\n\n  - Botón de editar perfil posicionado\n\n\n⏳ Próximo: Definir paleta de colores",
+          "timestamp": "2026-02-12T02:55:00Z"
         }
       ],
       "createdAt": "2026-02-11T20:00:00Z"
